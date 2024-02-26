@@ -9,12 +9,15 @@ function addBook(title,author){
 addBook("book01","aut01")
 addBook("book02","aut02")
 addBook("book03","aut03")
+addBook("book04","aut04")
+addBook("book05","aut05")
+addBook("book06","aut06")
 
 //make book as read
 function makeAsRead(title){
-    const readBook = library.findIndex(book =>book.Title === title);
-    if (readBook !== -1){
-        library[readBook].ReadStatus = "true"
+    const readBookId = library.findIndex(book =>book.Title === title);
+    if (readBookId !== -1){
+        library[readBookId].ReadStatus = "true"
     }
     else{
         console.log ("book not found")
@@ -22,4 +25,18 @@ function makeAsRead(title){
 }
 
 makeAsRead("book02")
+
+
+//Remove book
+function removeBook(title){
+    const removeBookId = library.findIndex(book =>book.Title === title);
+    if (removeBookId !== -1){
+        library.splice(removeBookId,1);
+    }
+    else{
+        console.log ("book not found")
+    }
+}
+
+removeBook("book04")
 console.log(library)
