@@ -42,21 +42,22 @@ function removeBook(title){
 removeBook("book04")
 
 //list all unread books
+
 let unreadBookTitle
 function listUnread(){
     let unreadBooks = library.filter(book => book.ReadStatus === "true")
     return unreadBookTitle = unreadBooks.map(book => book.Title)
 }
 
-//listUnread()
-//console.log(listUnread())
+listUnread()
+
 
 //find books by author
 
 function findBookByAuthor(author){
     let matchedBooks = library.filter(book => book.Author === author)
     if(matchedBooks.length !== 0){
-        return matchBookTitle = matchedBooks.map(book => book.Title)
+        return matchBookByAuthor = matchedBooks.map(book => book.Title)
     }
     else{
         console.log("Author do not exist")
@@ -65,4 +66,27 @@ function findBookByAuthor(author){
 }
 
 findBookByAuthor("aut02")
-console.log(matchBookTitle)
+//console.log(matchBookByAuthor)
+
+//include a book by title
+
+function bookExists(title){
+    
+    return findBookByTitle(title);
+
+    function findBookByTitle(title){
+        let matchBook = library.filter(book => book.Title === title)
+        if(matchBook.length !== 0){
+            matchBookTitle = matchBook.map(book => book.Title)
+            //console.log(matchBookTitle)
+            //console.log(matchBookTitle.includes(title))
+            return matchBookTitle.includes(title) 
+        }
+        else{
+         console.log("Book do not exist")
+        }
+    }
+}
+
+
+console.log(bookExists("book01"))
