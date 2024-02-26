@@ -25,6 +25,7 @@ function makeAsRead(title){
 }
 
 makeAsRead("book02")
+makeAsRead("book03")
 
 
 //Remove book
@@ -39,4 +40,14 @@ function removeBook(title){
 }
 
 removeBook("book04")
-console.log(library)
+
+//list all unread books
+let unreadBooks =[];
+let unreadBookTitle =[];
+function listUnread(){
+    unreadBooks = library.filter(book => book.ReadStatus === "true")
+    unreadBookTitle = unreadBooks.map(book => book.Title)
+}
+
+listUnread()
+console.log(unreadBookTitle)
