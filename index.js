@@ -8,9 +8,9 @@ function addBook(title,author){
 
 addBook("book01","aut01")
 addBook("book02","aut02")
-addBook("book03","aut03")
+addBook("book03","aut02")
 addBook("book04","aut04")
-addBook("book05","aut05")
+addBook("book05","aut02")
 addBook("book06","aut06")
 
 //make book as read
@@ -25,7 +25,7 @@ function makeAsRead(title){
 }
 
 makeAsRead("book02")
-makeAsRead("book03")
+makeAsRead("book06")
 
 
 //Remove book
@@ -42,12 +42,27 @@ function removeBook(title){
 removeBook("book04")
 
 //list all unread books
-let unreadBooks =[];
-let unreadBookTitle =[];
+let unreadBookTitle
 function listUnread(){
-    unreadBooks = library.filter(book => book.ReadStatus === "true")
-    unreadBookTitle = unreadBooks.map(book => book.Title)
+    let unreadBooks = library.filter(book => book.ReadStatus === "true")
+    return unreadBookTitle = unreadBooks.map(book => book.Title)
 }
 
-listUnread()
-console.log(unreadBookTitle)
+//listUnread()
+//console.log(listUnread())
+
+//find books by author
+
+function findBookByAuthor(author){
+    let matchedBooks = library.filter(book => book.Author === author)
+    if(matchedBooks.length !== 0){
+        return matchBookTitle = matchedBooks.map(book => book.Title)
+    }
+    else{
+        console.log("Author do not exist")
+    }
+    
+}
+
+findBookByAuthor("aut02")
+console.log(matchBookTitle)
